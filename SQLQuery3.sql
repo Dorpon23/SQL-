@@ -76,7 +76,11 @@ order by city Desc
 --Insert into tblEmploye_Info3 (Name,GenderId,salary,City) Values('Sara','Male',4800,'Sydney')
 --Insert into tblEmploye_Info3 (Name,GenderId,salary,City) Values('Valane','Female',5500,'New York')
 --Insert into tblEmploye_Info3 (Name,GenderId,salary,City) Values('James','Female',6500,'London')
---Insert into tblEmploye_Info3 (Name,GenderId,salary,City) Values('Russel','Male',9800,'London')
+Insert into tblEmploye_Info3 (Name,GenderId,salary,City) Values('Russel','Male',9800,'London')
+
+
+
+select * from tblDepartment
 
 
 
