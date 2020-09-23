@@ -28,6 +28,8 @@ Select * from tblEmploye_Info2 Where Age >25
 Select * from tblEmploye_Info2 Where Age In (20,23,29)
 Select * from tblEmploye_Info2 Where Age Between 20 AND 25
 Select * from tblEmploye_Info2 Where city Like'n%'
+Select * from tblEmploye_Info2 Where city Like'%n'
+Select * from tblEmploye_Info2 Where city Like'%n%'
 Select * from tblEmploye_Info2 Where Email Like'%@%'
 Select * from tblEmploye_Info2 Where Email Not Like'%@%'
 Select * from tblEmploye_Info2 Where Email Like'_@_.com'
