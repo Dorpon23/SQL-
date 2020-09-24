@@ -5,6 +5,7 @@ Email nvarchar(50) null,
 GenderId Int,
 city nvarchar(50)
 )
+select * from tblEmploye_Info2
 Alter Table tblEmploye_Info2
 Add Constraint UQ_tblEmploye_Info2 unique(Email)
 
@@ -30,12 +31,15 @@ Select * from tblEmploye_Info2 Where Age Between 20 AND 25
 Select * from tblEmploye_Info2 Where city Like'n%'
 Select * from tblEmploye_Info2 Where city Like'%n'
 Select * from tblEmploye_Info2 Where city Like'%n%'
+Select * from tblEmploye_Info2 Where city Like'L%n'
+Select * from tblEmploye_Info2 Where Email Like't%.com'
 Select * from tblEmploye_Info2 Where Email Like'%@%'
 Select * from tblEmploye_Info2 Where Email Not Like'%@%'
 Select * from tblEmploye_Info2 Where Email Like'_@_.com'
 Select * from tblEmploye_Info2 Where Name Like '[TJS]%'
 Select * from tblEmploye_Info2 Where Name Like '[^TJS]%'
 Select * from tblEmploye_Info2 Where (city='London' or city='Mumbai') And Age>25
+
 Select * from tblEmploye_Info2 order by Name Desc, Age ASC
 Select TOP 3 * from tblEmploye_Info2
 Select TOP 3 Name, Age from tblEmploye_Info2
