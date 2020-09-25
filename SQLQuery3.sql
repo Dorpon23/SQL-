@@ -95,22 +95,76 @@ select * from tblDepartment
 Alter Table tblEmploye_Info3
 Drop column city
 
+--Format for inne join,left join,right join,full join not for cross join
+--Select ColumnList
+--From   LeftTable
+--JoinType RghtTable
+--On       JoinCondition
+/*returns only the matching rows between both the tables.
+Non matching rows are eliminated*/
+select * from tblEmploye_Info3
+select * from tblDepartment
 select Name,GenderId,Salary,DepartmentName From 
 tblEmploye_Info3
 Inner join
 tblDepartment 
 ON tblEmploye_Info3.DepartmentId = tblDepartment.ID
 
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Tom','Male',4800)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Pam','Feale',3000)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('John','Male',3500)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Sam','Male',4500)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Todd','Male',2800)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Ben','Male',7000)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Sara','Male',4800)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Valane','Female',5500)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('James','Female',6500)
-Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Russel','Male',9800)
+Select Name,GenderId,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+inner join
+tblDepartment
+On tblEmploye_Info3.DepartmentId = tblDepartment.ID
+select * from tblEmploye_Info3
+select * from tblDepartment
+
+/*returns all the matching rows + non matching rows the left table*/
+Select Name,GenderId,salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+Left JOIN
+tblDepartment
+ON tblEmploye_Info3.DepartmentId = tblDepartment.Id
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+/*returns all the matching rows + non matching rows the right table*/
+Select Name,GenderID,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3 
+Right Join
+tblDepartment
+on tblEmploye_Info3.DepartmentId = tblDepartment.ID
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+/*returns all rows from both the left and right tables, 
+including the non mathing rows*/
+Select Name,GenderId,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+Full join
+tblDepartment
+on tblEmploye_Info3.DepartmentId = tblDepartment.ID
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+/*produces the cartesian product of the 2 tables involved in the join.
+For example,in the Employes table we have 10 rows and in the Departments table 
+we have 4 rows.so,a cross join between these 2 tables produces 40 rows */
+--cross join shouldn't have on clause
+Select Name,GenderId,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+cross join
+tblDepartment
+
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Tom','Male',4800)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Pam','Feale',3000)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('John','Male',3500)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Sam','Male',4500)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Todd','Male',2800)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Ben','Male',7000)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Sara','Male',4800)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Valane','Female',5500)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('James','Female',6500)
+--Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Russel','Male',9800)
 
 
 

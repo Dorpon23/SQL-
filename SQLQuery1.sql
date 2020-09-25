@@ -29,14 +29,14 @@ Alter Table Employe_Info
 Drop Constraint DF_Employe_Info_GenderId
 --it used for drop constraint
 
-Delete from tblGender where Id = 1
+Delete from tblGender where Id = 3
 Delete from Employe_Info
 --Cascading referential integrity constraint: SET NULL, CASCADE, SET DEFAULT, NO ACTION
 
 -- First, Example select Employe_Info then Alt+F1: you can see the full details this table
 
-Insert into Employe_Info values (8,'SARAH','s@h.com',1,30)
-Delete from Employe_Info where Id = 1
+Insert into Employe_Info values (7,'SARAH','s@h.com',1,30)
+Delete from Employe_Info where Id = 2
 
 Alter Table Employe_Info
 Add Constraint CK_Employe_Info_Age Check (Age > 0 AND Age < 150)
@@ -51,7 +51,7 @@ select * from tblEmploye_Info1
 insert into tblEmploye_Info1 values('Rahim')
 
 SET IDENTITY_INSERT tblEmploye_Info1 ON
-insert into tblEmploye_Info1 (PersonId,Name) values(1,'Rahim')
+insert into tblEmploye_Info1 (PersonId,Name) values(11,'Rahim')
 
 --An explicit value for the identity column in table 'tblEmploye_Info1' 
 --can only be specified when a column list is used and IDENTITY_INSERT is ON.
@@ -79,6 +79,7 @@ Value1 nvarchar(20)
 )
 
 DBCC CHECKIDENT(Test1,RESEED,0)
+DBCC CHECKIDENT(Test2,RESEED,0)
 Insert into Test2 values('aaa')
 
 -- Test1 ka insert korlea trigger ka call korea automatic test2 value insert korea
@@ -100,17 +101,17 @@ Delete from Test2
 create Trigger trForInsert on Test1 for Insert
 as
 Begin
-    Insert into Test2 Values ('YYYY')
+    Insert into Test2 Values ('XXXX')
 End
 
 select * from Employe_Info
 
-Delete from Employe_Info
+Delete from Employe_Info where Id=9
 
 Alter Table Employe_Info
 Add Constraint UQ_Employe_Info_Email Unique(Email)
 --unique key is not provided same number/address always repesent unique number/address
-Insert into Employe_Info values(3,'def','x@z.com',2,20)
+Insert into Employe_Info values(9,'def','x@z.com',2,20)
 
 Alter Table Employe_Info
 Drop Constraint UQ_Employe_Info_Email
