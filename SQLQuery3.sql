@@ -215,6 +215,24 @@ tblInformation E
 Cross join
 tblInformation M
 
+select * from tblEmploye_Info3
+select * from tblDepartment
+
+--Subquaries
+
+select Name,GenderId,salary from tblEmploye_Info3
+where tblEmploye_Info3.ID in (select Id from tblEmploye_Info3
+where tblEmploye_Info3.salary>5000)
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+
+select Name,GenderId,Salary, 
+(select count(*) As DepartmentId from tblDepartment 
+where tblEmploye_Info3.DepartmentId=tblDepartment.Id) As DepartmentId 
+from tblEmploye_Info3
+order by Name 
+
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Tom','Male',4800)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Pam','Feale',3000)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('John','Male',3500)
