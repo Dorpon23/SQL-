@@ -155,6 +155,66 @@ tblEmploye_Info3
 cross join
 tblDepartment
 
+--NON VALUE PRINT USING "IS NULL" LEFT,RIGHT,FULL JOIN
+Select Name,GenderId,salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+Left join
+tblDepartment
+on tblEmploye_Info3.DepartmentId = tblDepartment.Id
+where tblDepartment.ID IS NULL
+--where tblEmploye_Info3.DepartmentId IS NULL
+
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+Select Name,GenderId,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+Right join
+tblDepartment
+on tblEmploye_Info3.DepartmentId = tblDepartment.Id
+where tblEmploye_Info3.DepartmentId IS NULL
+
+Select Name,GenderId,Salary,Loation,DepartmentName,DepartmentHead From
+tblEmploye_Info3
+Full join
+tblDepartment
+on tblEmploye_Info3.DepartmentId = tblDepartment.Id
+where tblEmploye_Info3.DepartmentId IS NULL
+/* note that */
+
+create table tblInformation(
+EmployeeId int primary key,
+Name nvarchar(50),
+ManagerId int );
+
+select * from tblInformation
+
+Select E.Name, M.Name From
+tblInformation E
+Left join
+tblInformation M
+ON E.ManagerId =M.EmployeeId
+
+select * from tblInformation
+Select E.Name, M.Name From
+tblInformation E
+Inner join
+tblInformation M
+ON E.ManagerId =M.EmployeeId
+
+select * from tblInformation
+Select E.Name, M.Name From
+tblInformation E
+Right join
+tblInformation M
+ON E.ManagerId =M.EmployeeId
+
+select * from tblInformation
+Select E.Name, M.Name From
+tblInformation E
+Cross join
+tblInformation M
+
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Tom','Male',4800)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Pam','Feale',3000)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('John','Male',3500)
