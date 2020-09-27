@@ -115,6 +115,19 @@ tblEmploye_Info3
 inner join
 tblDepartment
 On tblEmploye_Info3.DepartmentId = tblDepartment.ID
+
+/*SELECT 
+    productID,
+    productName,
+    categoryName,
+    companyName AS supplier
+FROM
+    products
+INNER JOIN
+    categories ON categories.categoryID = products.categoryID
+INNER JOIN
+    suppliers ON suppliers.supplierID = products.supplierID*/
+
 select * from tblEmploye_Info3
 select * from tblDepartment
 
@@ -182,6 +195,7 @@ on tblEmploye_Info3.DepartmentId = tblDepartment.Id
 where tblEmploye_Info3.DepartmentId IS NULL
 /* note that */
 
+--self join
 create table tblInformation(
 EmployeeId int primary key,
 Name nvarchar(50),
@@ -243,6 +257,5 @@ order by Name
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Valane','Female',5500)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('James','Female',6500)
 --Insert into tblEmploye_Info3 (Name,GenderId,salary) Values('Russel','Male',9800)
-
 
 
