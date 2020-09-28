@@ -130,6 +130,7 @@ INNER JOIN
 
 select * from tblEmploye_Info3
 select * from tblDepartment
+select (Name+' ' + genderid) as FullName from tblEmploye_Info3
 
 /*returns all the matching rows + non matching rows the left table*/
 Select Name,GenderId,salary,Loation,DepartmentName,DepartmentHead From
