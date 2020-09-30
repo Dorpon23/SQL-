@@ -80,3 +80,19 @@ replace_name add id int
 --coalesce: retuens the first 'NON NULL' value 
 SELECT * FROM replace_name
 select id,coalesce(FirstName,MiddleName,LastName) from replace_name
+
+select * from tblEmploye_Info3
+select * from tblDepartment
+
+Create view my_view
+As
+select Name,GenderId,Salary,DepartmentName From 
+tblEmploye_Info3
+Inner join
+tblDepartment 
+ON tblEmploye_Info3.DepartmentId = tblDepartment.ID
+
+select * from my_view
+select count(*) AS Total,sum(salary) AS Each_Departmnet_Salary,DepartmentName from my_view
+group by DepartmentName order by DepartmentName
+
