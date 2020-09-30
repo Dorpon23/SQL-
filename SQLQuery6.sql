@@ -26,6 +26,7 @@ select RTRIM ('DORPON       ') AS NAME
 SELECT FirstName,MiddleName,LastName,RTRIM(LTRIM(FirstName))+ ' ' +MiddleName+' '+LastName as 
 FullName From replace_name
 
+
 SELECT lOWER(FirstName) as FirstName,Upper(MiddleName) as MiddleName,LastName,
 Upper (FirstName+ ' ' +MiddleName+' '+LastName) as 
 FullName From replace_name
@@ -54,7 +55,7 @@ select CHARINDEX('@','dorpon_se@yahoo.com',1)
 --SUBSTRING('Expression','Start','Length')
 SELECT SUBSTRING('dorpon_se@yahoo.com',10,10)
 --SUBSTRING     ('Expression',         'Start',                        'Length')
-SELECT SUBSTRING('pam@bbb.com',CHARINDEX('@','pam@bbb.com')+1,len('pam@bbb.com')-CHARINDEX('@','pam@bbb.com')
+SELECT SUBSTRING('pam@bbb.com',CHARINDEX('@','pam@bbb.com')+1,len('pam@bbb.com')-CHARINDEX('@','pam@bbb.com'))
 --Expression = pam@bbb.com
 --Start = CHARINDEX('@','pam@bbb.com')+1
 --Length = len('pam@bbb.com')-CHARINDEX('@','pam@bbb.com')
@@ -67,3 +68,46 @@ from tblEmploye_Info2 GROUP BY
 SUBSTRING(Email,CHARINDEX('@',Email)+1,
 len(Email)-CHARINDEX('@',Email)),Email
 
+
+
+
+select FirstName,MiddleName,LastName, CONCAT(FirstName,' ', MiddleName,' ', LastName) 
+as FullName FROM replace_name
+--concat mean add kora lagea bujai
+
+select FirstName,MiddleName,LastName, RTRIM(LTRIM(CONCAT(FirstName,' ', MiddleName,' ', LastName))) 
+as FullName FROM replace_name
+
+select FirstName,MiddleName,LastName, Trim(CONCAT(FirstName,' ', MiddleName,' ', LastName))
+as FullName FROM replace_name
+
+select REPLICATE('**',3)
+
+SELECT * FROM tblEmploye_Info2
+
+SELECT ID,Name,Email,SUBSTRING(Email,1,1) + REPLICATE('*',4) 
++SUBSTRING(Email,CHARINDEX('@',Email)+1,
+len(Email)-CHARINDEX('@',Email)) as [Replicate Email] 
+from tblEmploye_Info2
+/*Replicate means t@t.com - t****  then this rule :SUBSTRING(Email,1,1) + REPLICATE('*',4) 
++SUBSTRING(Email,CHARINDEX('@',Email)+1,
+len(Email)-CHARINDEX('@',Email)).AS A RESULT, t****t.com*/
+
+select FirstName+SPACE(15)+MiddleName+SPACE(15)+LastName
+as FullName FROM replace_name
+
+select * from Employe_Info
+
+--Patindex('%Pattern%',Expression)
+SELECT Email,PATINDEX('%@n.com',Email) as FirstOccurance
+from Employe_Info where PATINDEX('%@n.com',Email)>0
+/*PATINDEX IS SMILLAR TO CHARINDEX.WITH CHARINDEX() WE CAN NOT USE WILDCADS,  
+WHERE AS PATINDEX PROVIDE THIS CAPABILITY.
+If the specified pattern is not found, PATINDEX RETURNS ZERO*/
+
+SELECT Id,Name,EMAIL,REPLACE(Email,'.com','.net') AS New_Email 
+from Employe_Info
+
+--STUFF(Original_Expression,Start,Length,Replacement_Expression)
+select Id,Name,Email,STUFF(Email,2,3,'*****') 
+AS Decode_Email from Employe_Info
