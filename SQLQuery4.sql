@@ -40,7 +40,35 @@ Select Id,Name,Email,city,
       when tblEmploye_Info2.city = 'London' Then 'UK'
 	  when tblEmploye_Info2.city = 'New York' Then 'USA'
   Else 'No Found Country' 
-  End) from tblEmploye_Info2 order by Name 
+  End) As Country from tblEmploye_Info2 order by Name 
+
+create TABLE songsT(
+TrackId int primary key,
+SongsName nvarchar(50),
+BYTES_SIZE int)
+
+select * from songsT
+Select TrackId,SongsName,BYTES_SIZE,
+(Case
+    when songsT.BYTES_SIZE<10000 Then 'SMALL'
+	when songsT.BYTES_SIZE>=10000 AND songsT.BYTES_SIZE<40000 Then 'MEDIMUM'
+	when songsT.BYTES_SIZE>=40000 AND songsT.BYTES_SIZE<60000 Then 'Large'
+ Else 'EXTRA LARGE'
+ End) AS [BYTES CATEGORY] from songsT order by SongsName
+
+
+--insert into songsT values(1,'Bintea DIL',45000)
+--insert into songsT values(2,'Khali Bali',55000)
+--insert into songsT values(3,'Illahi',50000)
+--insert into songsT values(4,'Badamiz Dil',30000)
+--insert into songsT values(5,'Fakira',10000)
+--insert into songsT values(6,'Dhoom Again',25000)
+--insert into songsT values(7,'Ae Dil Hai Mushkil',5000)
+--insert into songsT values(8,'Afgan Jalebi',15000)
+--insert into songsT values(9,'Malhari',65000)
+--insert into songsT values(10,'Destroy the Earth',75000)
+--insert into songsT values(11,'Love me Like You Do',38000)
+
 
 
 create table replace_name(
