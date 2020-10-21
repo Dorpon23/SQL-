@@ -12,7 +12,7 @@ End
 
 Declare @Start1 int
 set @Start1 = 97
-while(@Start1<=123)
+while(@Start1<123)
 Begin 
    Print CHAR (@Start1)
    set @Start1 =@Start1+1
@@ -22,6 +22,8 @@ SELECT '        DORPON'
 select LTRIM ('         DORPON') AS NAME
 Select 'DORPON               '
 select RTRIM ('DORPON       ') AS NAME
+
+SELECT SUBSTRING('You are beautiful.', 3,4)
 
 SELECT FirstName,MiddleName,LastName,RTRIM(LTRIM(FirstName))+ ' ' +MiddleName+' '+LastName as 
 FullName From replace_name
@@ -42,7 +44,7 @@ select FirstName,LEN(FirstName) AS [Total Count] From  replace_name
 Select LEFT('DORPON',4) as NUMBER_OF_VALUE_RETURNED_LEFT_SIDE
 --RIGHT(Charecter_Expression,Integer_Expression)
 SELECT RIGHT('DORPON',4) as NUMBER_OF_VALUE_RETURNED_RIGHT_SIDE
---Right Sid e
+--Right Side
 --D O R P O N
 --    1 2 3 4
 --    <------

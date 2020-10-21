@@ -14,11 +14,15 @@ Gender nvarchar(50) NOT NULL
  Add constraint Employe_Info_GenderId_FK
  Foreign Key (GenderId) references tblGender(Id)
 
+ Alter table Employe_info 
+ Drop constraint Employe_Info_GenderId_FK
+ 
+
 Select * from tblGender
 Select * from Employe_Info
 
 Insert into tblGender(Id, Gender) Values (1,'Male')
-Insert into Employe_Info (Id, Name, Email,GenderId,Age) Values (6,'Sohanur','s@r.com',2,15)
+Insert into Employe_Info (Id, Name, Email,Age) Values (11,'Sohanur','s@r.com',15)
 
 Alter Table Employe_Info
 Add Constraint DF_Employe_Info_GenderId
@@ -28,6 +32,8 @@ DEFAULT 3 FOR GenderId
 Alter Table Employe_Info
 Drop Constraint DF_Employe_Info_GenderId
 --it used for drop constraint
+Select * from tblGender
+Select * from Employe_Info
 
 Delete from tblGender where Id = 3
 Delete from Employe_Info
@@ -35,23 +41,21 @@ Delete from Employe_Info
 
 -- First, Example select Employe_Info then Alt+F1: you can see the full details this table
 
-Insert into Employe_Info values (7,'SARAH','s@h.com',1,30)
-Delete from Employe_Info where Id = 2
+Insert into Employe_Info values (7,'SARAH','s@h.com',1,27)
+Delete from Employe_Info where Id = 7
 
 Alter Table Employe_Info
 Add Constraint CK_Employe_Info_Age Check (Age > 0 AND Age < 150)
 -- ata manea holo ja age ar somaisema jeno ata negativea na jai, sobsomai ata jeno positive value bosta pari
-
 Alter Table Employe_Info
 Drop Constraint CK_Employe_Info_Age
-
 
 select * from tblEmploye_Info1
 
 insert into tblEmploye_Info1 values('Rahim')
 
 SET IDENTITY_INSERT tblEmploye_Info1 ON
-insert into tblEmploye_Info1 (PersonId,Name) values(11,'Rahim')
+insert into tblEmploye_Info1 (PersonId,Name) values(12,'Rahim')
 
 --An explicit value for the identity column in table 'tblEmploye_Info1' 
 --can only be specified when a column list is used and IDENTITY_INSERT is ON.
@@ -111,7 +115,7 @@ Delete from Employe_Info where Id=9
 Alter Table Employe_Info
 Add Constraint UQ_Employe_Info_Email Unique(Email)
 --unique key is not provided same number/address always repesent unique number/address
-Insert into Employe_Info values(9,'def','x@z.com',2,20)
+Insert into Employe_Info values(9,'def','x@v.com',2,20)
 
 Alter Table Employe_Info
 Drop Constraint UQ_Employe_Info_Email
