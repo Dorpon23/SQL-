@@ -12,7 +12,8 @@ Loation nvarchar(50),
 DepartmentHead nvarchar(50)
 )
 
-
+select * from tblEmploye_Info3
+select * from tblDepartment
 Drop Table tblDepartment
 --Modify Column
 Alter Table tblEmploye_Info3
@@ -23,6 +24,7 @@ tblEmploye_Info3 Add salary int
 
 Alter Table 
 tblEmploye_Info3 Add DepartmentId int
+
 Alter Table 
 tblDepartment Add Name nvarchar(50)
 
@@ -34,19 +36,20 @@ Alter Table tblEmploye_Info3
 Drop Constraint tblEmploye_Info3_DepartmentId_FK
 
 
-Select*from tblEmploye_Info3
-Select*from tblDepartment
+
 
 
 Select sum(salary) as Total_salary from tblEmploye_Info3
 Select Min(salary) as Minimum_salary from tblEmploye_Info3
 Select Max(salary) as Maximum_salary from tblEmploye_Info3
+Select*from tblEmploye_Info3
+Select*from tblDepartment
 
-Select city, SUM(salary) as Total_salary from tblEmploye_Info3 Group by city
+Select Name, SUM(salary) as Total_salary from tblEmploye_Info3 Group by Name order by Name ASC
 
-Select city,GenderId, SUM(salary) as Total_salary 
+Select Name,GenderId, SUM(salary) as Total_salary 
 from tblEmploye_Info3 
-Group by city,GenderId order by city Desc
+Group by Name,GenderId order by Name Desc
 
 Select city,GenderId, AVG(salary) as Total_salary 
 from tblEmploye_Info3 
@@ -71,8 +74,8 @@ order by city Desc
 /*Temporary table create in datadabase*/
 Select Name,GenderId,salary Into #tblEmploye_Info3 From tblEmploye_Info3
 Select*from #tblEmploye_Info3
-Select*from #tblEmploye_Info3 where Name ='Tom'
-delete from #tblEmploye_Info3 where Name='Tom'
+Select*from #tblEmploye_Info3 where Name ='Pam'
+delete from #tblEmploye_Info3 where Name='Pam'
 Drop TABLE #tblEmploye_Info3
 
 select Name,DepartmentId from  tblEmploye_Info3 where DepartmentId Is Null
@@ -244,7 +247,7 @@ select * from tblDepartment
 
 select Name,GenderId,Salary, 
 (select count(*) As DepartmentId from tblDepartment 
-where tblEmploye_Info3.DepartmentId=tblDepartment.Id) As DepartmentId 
+where tblEmploye_Info3.DepartmentId = tblDepartment.Id) As DepartmentId 
 from tblEmploye_Info3
 order by Name 
 

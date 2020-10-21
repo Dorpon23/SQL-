@@ -28,19 +28,22 @@ tblInformation M
 ON E.ManagerId =M.EmployeeId
 
 SELECT * FROM tblEmploye_Info2
+
 SELECT ID,Name,Email,city, 
 (Case
     when tblEmploye_Info2.city = 'London' Then 'OXFORD UNIVERCITY'
 	Else tblEmploye_Info2.city 
-	End) As Univercity
+	End) As Univercity,Age
 From tblEmploye_Info2 order by Name 
 
+Select * from tblEmploye_Info2
 Select Id,Name,Email,city,
  (Case
       when tblEmploye_Info2.city = 'London' Then 'UK'
 	  when tblEmploye_Info2.city = 'New York' Then 'USA'
   Else 'No Found Country' 
-  End) As Country from tblEmploye_Info2 order by Name 
+  End) As Country,Age 
+From tblEmploye_Info2 order by Name 
 
 create TABLE songsT(
 TrackId int primary key,
@@ -54,7 +57,7 @@ Select TrackId,SongsName,BYTES_SIZE,
 	when songsT.BYTES_SIZE>=10000 AND songsT.BYTES_SIZE<40000 Then 'MEDIMUM'
 	when songsT.BYTES_SIZE>=40000 AND songsT.BYTES_SIZE<60000 Then 'Large'
  Else 'EXTRA LARGE'
- End) AS [BYTES CATEGORY] from songsT order by SongsName
+ End) AS [BYTES CATEGORY] from songsT order by [BYTES CATEGORY] DESC
 
 
 --insert into songsT values(1,'Bintea DIL',45000)
