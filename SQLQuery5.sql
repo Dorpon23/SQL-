@@ -1,3 +1,5 @@
+--Stored Procedure Input
+
 SELECT * FROM tblEmploye_Info3
 /*This is how procedure create when it is create
 just call by name 'stored procedure'*/
@@ -36,7 +38,7 @@ End
 
 spGetEmployees
 
-Alter PROCEDURE spGetEmployeesId
+Create PROCEDURE spGetEmployeesId
 As 
 Begin
      SELECT Id,GenderId from tblEmploye_Info3 ORDER BY ID Desc
@@ -46,7 +48,7 @@ spGetEmployeesId
 Drop PROCEDURE spGetEmployeesId
 
 
-create procedure spGetEmployeesByGenderByDepaertmentEncryption  
+Create procedure spGetEmployeesByGenderByDepaertmentEncryption  
 @GenderId nvarchar(20),  
 @DepartmentId int  
 with Encryption
